@@ -1,0 +1,41 @@
+#Recamans Sequence
+
+import matplotlib.pyplot as plt
+import math
+import numpy as np
+
+i = 0
+y1 = 0
+rec = []
+while i < 15:
+    y2 = y1 - i
+    if y2 < 0 or y2 in rec:
+        y1 = y1 + i
+        rec.append(y1)
+        #print (y1)
+        i = i + 1
+    else:
+        y1=y2
+        rec.append(y1)
+        #print(y1)
+        i = i + 1
+print(rec)
+            #Recaman's ^^^
+            #Fancy visualisation
+j = 0
+while j < i-1:
+    gp1 = rec[j]
+    gp2 = rec[j + 1]
+    gpc = float(gp1 + gp2) / 2
+    gpr = float(gp1 - gp2) / 2
+    x = np.linspace(gp1,gp2,abs(gp1-gp2)*10)
+    fig, ax = plt.subplots();
+    if j % 2 == 0:
+        y = ((-(x - gpc)**2) + gpr**2)**(1/2)
+        ax.plot(x,y)
+        j = j + 1
+    else:
+        y = -((-(x - gpc)**2) + gpr**2)**(1/2)
+        ax.plot(x,y)
+        j = j + 1
+plt.show()
