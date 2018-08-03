@@ -26,8 +26,8 @@ j = 0
 while j < i-1:
     gp1 = rec[j]
     gp2 = rec[j + 1]
-    gpc = float(gp1 + gp2) / 2
-    gpr = float(gp1 - gp2) / 2
+    gpc = float(gp1 + gp2) / 2          #graph centre
+    gpr = float(gp1 - gp2) / 2          #graph radius
     x = np.linspace(gp1,gp2,abs(gp1-gp2)*10)
     fig, ax = plt.subplots();
     if j % 2 == 0:
